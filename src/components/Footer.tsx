@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
@@ -9,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-semibold mb-4">GB Hotels</h3>
+            <h3 className="text-xl font-semibold mb-4">Nomad To North</h3>
             <p className="text-sm text-gray-300 mb-4">
               Your gateway to authentic accommodations in the beautiful region of Gilgit-Baltistan. Experience local hospitality at affordable prices.
             </p>
@@ -82,15 +81,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex">
                 <MapPin className="h-5 w-5 mr-2 text-gbsky-400" />
-                <span className="text-gray-300">Gilgit City, Gilgit-Baltistan, Pakistan</span>
+                <span className="text-gray-300">Skardu, Gilgit-Baltistan, Pakistan</span>
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 mr-2 text-gbsky-400" />
-                <span className="text-gray-300">+92 345 1234567</span>
+                <span className="text-gray-300">03436845475</span>
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 mr-2 text-gbsky-400" />
-                <span className="text-gray-300">info@gbhotels.com</span>
+                <span className="text-gray-300">info@nomadtonorth.com</span>
               </li>
             </ul>
           </div>
@@ -98,7 +97,7 @@ const Footer = () => {
         
         <div className="mt-12 pt-8 border-t border-gray-700">
           <p className="text-center text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} GB Hotels. All rights reserved.
+            &copy; {new Date().getFullYear()} Nomad To North. All rights reserved.
           </p>
         </div>
       </div>

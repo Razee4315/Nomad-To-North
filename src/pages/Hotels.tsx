@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Star, MapPin, Wifi, BedDouble, Users, Filter, Search } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -20,6 +19,19 @@ const Hotels = () => {
   const amenities = Array.from(
     new Set(hotels.flatMap(hotel => hotel.amenities))
   ).sort();
+  
+  const location = useLocation();
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const destination = params.get('destination') || '';
+    const checkIn = params.get('checkIn') || '';
+    const checkOut = params.get('checkOut') || '';
+    const guests = params.get('guests') || '2';
+    setSearchTerm(destination);
+    setSelectedLocations(destination ? [destination] : []);
+    // Optionally: store checkIn, checkOut, guests in state if needed for display
+    (window as any).searchParams = { destination, checkIn, checkOut, guests };
+  }, [location.search]);
   
   const handleSearch = () => {
     let results = hotels;
@@ -81,7 +93,7 @@ const Hotels = () => {
   };
   
   // Apply filters
-  React.useEffect(() => {
+  useEffect(() => {
     handleSearch();
   }, [searchTerm, priceRange, selectedLocations, selectedAmenities]);
   
@@ -89,11 +101,19 @@ const Hotels = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-        {/* Page Header */}
-        <div className="bg-gbsky-600 text-white py-12">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold mb-2">Find Your Perfect Stay in Gilgit-Baltistan</h1>
-            <p className="text-gbsky-100">Browse our collection of authentic accommodations across the region</p>
+        <div className="py-6 px-4 sm:px-8 bg-white border-b border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gbearth-800 mb-1">Hotels in Gilgit-Baltistan</h1>
+            <p className="text-gbearth-600 text-base">Browse authentic accommodations and find your perfect stay.</p>
+          </div>
+          <div className="mt-4 sm:mt-0 flex items-center gap-2">
+            <span className="text-gbearth-600 font-medium">Sort by:</span>
+            <select className="border border-gray-300 rounded-md px-2 py-1 focus:ring-gbsky-500 focus:border-gbsky-500">
+              <option>Recommended</option>
+              <option>Price (Low to High)</option>
+              <option>Price (High to Low)</option>
+              <option>Rating</option>
+            </select>
           </div>
         </div>
         
@@ -215,7 +235,7 @@ const Hotels = () => {
                             <h3 className="text-xl font-bold text-gbearth-800 mb-1">{hotel.name}</h3>
                             <div className="flex items-center mb-3">
                               <MapPin className="h-4 w-4 text-gbearth-500 mr-1" />
-                              <span className="text-gbearth-600 text-sm">{hotel.location}</span>
+                              <span className="text-gbearth-600">{hotel.location}</span>
                             </div>
                           </div>
                           <div className="flex items-center bg-gbearth-100 px-2 py-1 rounded">

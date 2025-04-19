@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -13,7 +12,7 @@ const About = () => {
         <div className="relative bg-gbsky-600 text-white py-20">
           <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-20"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">About GB Hotels</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">About Nomad To North</h1>
             <p className="text-xl text-center max-w-2xl mx-auto">Your gateway to authentic accommodations in the heart of Gilgit-Baltistan</p>
           </div>
         </div>
@@ -23,7 +22,7 @@ const About = () => {
             <section className="mb-16 bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gbearth-800 mb-6">Our Mission</h2>
               <div className="prose prose-lg text-gbearth-600">
-                GB Hotels was founded with a simple yet powerful mission: to provide affordable, 
+                Nomad To North was founded with a simple yet powerful mission: to provide affordable, 
                 localized booking services for travelers exploring the breathtaking region of Gilgit-Baltistan. 
                 We aim to bridge the gap between tourists seeking authentic experiences and local hotel owners 
                 looking to showcase their hospitality.
@@ -38,7 +37,7 @@ const About = () => {
             <section className="mb-16 bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gbearth-800 mb-6">Our Story</h2>
               <div className="prose prose-lg text-gbearth-600">
-                Founded in 2023 by a group of passionate locals, GB Hotels began as a response to the 
+                Founded in 2023 by a group of passionate locals, Nomad To North began as a response to the 
                 growing tourism in Gilgit-Baltistan and the lack of locally-operated booking platforms. 
                 We noticed that international booking sites often missed the essence of local accommodations 
                 and charged excessive fees to both travelers and hotel owners.

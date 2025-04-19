@@ -1,4 +1,3 @@
-
 export interface Hotel {
   id: number;
   name: string;
@@ -39,11 +38,11 @@ export const hotels: Hotel[] = [
     price: 12000,
     rating: 4.9,
     reviews: 89,
-    image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e',
+    image: 'https://images.pexels.com/photos/14593908/pexels-photo-14593908.jpeg?auto=compress&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e',
-      'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb',
-      'https://images.unsplash.com/photo-1472396961693-142e6e269027'
+      'https://images.pexels.com/photos/14593908/pexels-photo-14593908.jpeg?auto=compress&w=800&q=80',
+      'https://images.pexels.com/photos/14593909/pexels-photo-14593909.jpeg?auto=compress&w=800&q=80',
+      'https://images.pexels.com/photos/14593910/pexels-photo-14593910.jpeg?auto=compress&w=800&q=80'
     ],
     amenities: ['Free WiFi', 'Spa', 'Room Service', 'Airport Shuttle', 'Swimming Pool', 'Fitness Center', 'Conference Rooms'],
     features: ['Luxury Accommodations', 'Fine Dining', 'Adventure Tours', 'Business Facilities']

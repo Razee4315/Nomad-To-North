@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 interface Slide {
@@ -47,9 +46,6 @@ const HeroSlider: React.FC = () => {
           <div className="slide-content">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">{slide.title}</h1>
             <p className="text-xl md:text-2xl mb-8 text-center max-w-3xl">{slide.subtitle}</p>
-            <button className="bg-gbsky-600 hover:bg-gbsky-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-colors">
-              Book Now
-            </button>
           </div>
         </div>
       ))}

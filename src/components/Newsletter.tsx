@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const Newsletter: React.FC = () => {
@@ -22,7 +21,7 @@ const Newsletter: React.FC = () => {
     <section className="bg-gbsky-600 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-white mb-4">Stay Updated with GB Hotels</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Stay Updated with Nomad To North</h2>
           <p className="text-white/80 max-w-3xl mx-auto">
             Subscribe to our newsletter for exclusive deals, travel tips, and updates on new hotels in Gilgit-Baltistan.
           </p>

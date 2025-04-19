@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Star } from 'lucide-react';
 
@@ -24,7 +23,7 @@ const testimonials: Testimonial[] = [
     id: 2,
     name: 'Michael Chen',
     location: 'Singapore',
-    comment: 'GB Hotels helped me find the perfect accommodation in Gilgit. The booking process was seamless and the hotel exceeded my expectations.',
+    comment: 'Nomad To North helped me find the perfect accommodation in Gilgit. The booking process was seamless and the hotel exceeded my expectations.',
     rating: 4,
     image: 'https://randomuser.me/api/portraits/men/22.jpg'
   },

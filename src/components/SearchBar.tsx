@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Calendar, MapPin, Users } from 'lucide-react';
 
@@ -8,10 +7,20 @@ const SearchBar: React.FC = () => {
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState('2');
 
+  // Get unique locations from hotels data
+  const locations = Array.from(new Set((window as any).hotelsList || [])) as string[];
+  const sortedLocations = locations.sort();
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would redirect to search results
-    console.log('Search params:', { destination, checkIn, checkOut, guests });
+    // Redirect to hotels page with search params as query string
+    const params = new URLSearchParams({
+      destination,
+      checkIn,
+      checkOut,
+      guests
+    });
+    window.location.href = `/hotels?${params.toString()}`;
   };
 
   return (
@@ -22,14 +31,17 @@ const SearchBar: React.FC = () => {
             <label htmlFor="destination" className="text-sm font-medium text-gray-700 mb-1">Destination</label>
             <div className="relative">
               <MapPin className="absolute left-3 top-3 h-5 w-5 text-gbearth-500" />
-              <input
+              <select
                 id="destination"
-                type="text"
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
-                placeholder="Where are you going?"
-                className="pl-10 py-2 px-4 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gbsky-500 focus:border-gbsky-500"
-              />
+                className="pl-10 py-2 px-4 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gbsky-500 focus:border-gbsky-500 appearance-none"
+              >
+                <option value="">Where are you going?</option>
+                {sortedLocations.map((loc: string) => (
+                  <option key={loc} value={loc}>{loc}</option>
+                ))}
+              </select>
             </div>
           </div>
           

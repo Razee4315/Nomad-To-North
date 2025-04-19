@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Star, MapPin, Wifi, Calendar, Users, Check, ArrowLeft, ArrowRight } from 'lucide-react';
@@ -14,6 +13,11 @@ const HotelDetail = () => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState('2');
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [userPhone, setUserPhone] = useState('');
+  const [userNotes, setUserNotes] = useState('');
+  const whatsappNumber = '923001234567'; // Replace with your WhatsApp number
 
   useEffect(() => {
     // Simulate API call with a timeout
@@ -26,11 +30,31 @@ const HotelDetail = () => {
     return () => clearTimeout(timer);
   }, [id]);
 
+  useEffect(() => {
+    if ((window as any).searchParams) {
+      const { checkIn: ci, checkOut: co, guests: g } = (window as any).searchParams;
+      setCheckIn(ci || '');
+      setCheckOut(co || '');
+      setGuests(g || '2');
+    }
+  }, []);
+
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would process the booking
-    console.log('Booking submitted:', { hotelId: id, checkIn, checkOut, guests });
-    alert('Your booking request has been submitted! We will contact you shortly to confirm your reservation.');
+    if (!checkIn || !checkOut || !guests) {
+      alert('Please enter your check-in date, check-out date, and number of guests to proceed.');
+      return;
+    }
+    setShowContactForm(true);
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Compose WhatsApp message
+    const message = encodeURIComponent(
+      `Booking Inquiry:\nHotel: ${hotel?.name}\nName: ${userName}\nPhone: ${userPhone}\nCheck-in: ${checkIn}\nCheck-out: ${checkOut}\nGuests: ${guests}\nQuestion: ${userNotes}`
+    );
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
 
   const goToNextImage = () => {
@@ -294,6 +318,33 @@ const HotelDetail = () => {
           </div>
         </div>
       </main>
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative border border-gbsky-100 animate-fade-in">
+            <button className="absolute top-3 right-3 text-gray-400 hover:text-gbsky-600 text-3xl font-bold transition-colors" onClick={() => setShowContactForm(false)} aria-label='Close'>&times;</button>
+            <h2 className="text-3xl font-bold mb-2 text-gbearth-800 text-center">Contact Us</h2>
+            <p className="text-gbearth-600 mb-4 text-center">Please provide your details and we will contact you via WhatsApp.</p>
+            <form onSubmit={handleContactSubmit} className="space-y-4">
+              <div>
+                <label className="block text-gbearth-700 font-semibold mb-1">Your Name</label>
+                <input type="text" required value={userName} onChange={e => setUserName(e.target.value)} placeholder="Enter your name" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gbsky-500 focus:border-gbsky-500 transition" />
+              </div>
+              <div>
+                <label className="block text-gbearth-700 font-semibold mb-1">Phone Number</label>
+                <input type="tel" required value={userPhone} onChange={e => setUserPhone(e.target.value)} placeholder="e.g. 03001234567" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gbsky-500 focus:border-gbsky-500 transition" />
+              </div>
+              <div>
+                <label className="block text-gbearth-700 font-semibold mb-1">Any Question?</label>
+                <textarea value={userNotes} onChange={e => setUserNotes(e.target.value)} placeholder="Ask us anything about your stay..." className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gbsky-500 focus:border-gbsky-500 transition" rows={3} />
+              </div>
+              <button type="submit" className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-colors text-lg mt-2">
+                <svg className="w-6 h-6" viewBox="0 0 32 32" fill="currentColor"><path d="M16.003 3C9.373 3 3.998 8.373 3.998 15c0 2.653.867 5.108 2.363 7.134L3 29l7.09-3.313C12.99 26.57 14.464 27 16.003 27c6.627 0 12.002-5.373 12.002-12S22.63 3 16.003 3zm0 21.818c-1.357 0-2.694-.36-3.854-1.04l-.275-.164-4.205 1.963.896-4.363-.178-.283C7.1 18.13 6.336 16.6 6.336 15c0-5.325 4.34-9.664 9.667-9.664 5.324 0 9.662 4.339 9.662 9.664 0 5.326-4.338 9.665-9.662 9.665zm5.293-7.07c-.29-.144-1.713-.847-1.978-.943-.266-.096-.46-.144-.655.145-.195.29-.75.943-.92 1.138-.17.195-.34.219-.63.073-.29-.145-1.225-.451-2.334-1.44-.862-.768-1.444-1.715-1.615-2.004-.17-.29-.018-.446.127-.59.13-.13.29-.34.434-.51.145-.17.193-.29.29-.485.096-.195.048-.365-.024-.51-.073-.144-.655-1.588-.9-2.174-.237-.57-.478-.493-.655-.503-.17-.01-.365-.012-.56-.012-.194 0-.51.073-.778.365-.267.29-1.02 1-1.02 2.438 0 1.438 1.045 2.824 1.19 3.02.144.194 2.06 3.145 5.01 4.287.701.24 1.248.384 1.675.492.703.179 1.345.154 1.85.093.564-.067 1.713-.7 1.956-1.374.242-.674.242-1.253.17-1.374-.072-.12-.266-.193-.556-.338z"/></svg>
+                Contact Us on WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
       <Footer />
     </div>
   );

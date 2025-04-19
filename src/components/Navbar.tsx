@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
@@ -17,13 +16,11 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-gbsky-600">GB</span>
-              <span className="ml-1 text-2xl font-bold text-gbearth-600">Hotels</span>
+              <img src="/logo.png" alt="Nomad To North Logo" className="h-16 w-auto md:h-20 lg:h-24" />
             </Link>
           </div>
-          
           {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center">
+          <div className="hidden md:flex md:items-center gap-2">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -47,30 +44,29 @@ const Navbar = () => {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="/login" className="bg-gbsky-600 text-white hover:bg-gbsky-700 px-4 py-2 text-sm font-medium transition-colors rounded-md">
+                  <Link to="/login" className="bg-gbsky-600 text-white hover:bg-gbsky-700 px-4 py-2 text-sm font-medium transition-colors rounded-md shadow-md">
                     Login
                   </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gbearth-600 hover:text-gbsky-600 focus:outline-none"
-              aria-expanded="false"
+              aria-expanded={isOpen}
+              aria-label="Toggle navigation menu"
             >
               <Menu className="h-6 w-6" />
             </button>
           </div>
         </div>
       </div>
-      
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden animate-slide-down">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
             <Link to="/" className="block text-gbearth-800 hover:text-gbsky-600 px-3 py-2 text-base font-medium transition-colors hover:bg-gray-100 rounded-md">
               Home
@@ -84,7 +80,7 @@ const Navbar = () => {
             <Link to="/contact" className="block text-gbearth-800 hover:text-gbsky-600 px-3 py-2 text-base font-medium transition-colors hover:bg-gray-100 rounded-md">
               Contact
             </Link>
-            <Link to="/login" className="block bg-gbsky-600 text-white hover:bg-gbsky-700 px-3 py-2 text-base font-medium transition-colors rounded-md text-center">
+            <Link to="/login" className="block bg-gbsky-600 text-white hover:bg-gbsky-700 px-3 py-2 text-base font-medium transition-colors rounded-md text-center shadow-md">
               Login
             </Link>
           </div>
