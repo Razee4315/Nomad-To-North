@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <img src="/logo.png" alt="Nomad To North Logo" className="h-16 w-auto md:h-20 lg:h-24" />
+              <img src="logo.png" alt="Nomad To North Logo" className="h-16 w-auto md:h-20 lg:h-24" />
             </Link>
           </div>
           {/* Desktop menu */}
