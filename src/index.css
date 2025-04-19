@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,10 +16,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 198 100% 40%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 100 30% 50%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,40 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+.hero-slider {
+  @apply relative h-[500px] overflow-hidden;
+}
+
+.slide {
+  @apply absolute inset-0 opacity-0 transition-opacity duration-1000;
+}
+
+.slide.active {
+  @apply opacity-100;
+}
+
+.slide-content {
+  @apply absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-white p-4;
+}
+
+.search-container {
+  @apply bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto -mt-24 relative z-10;
+}
+
+@media (max-width: 768px) {
+  .hero-slider {
+    @apply h-[300px];
+  }
+  
+  .search-container {
+    @apply -mt-16;
   }
 }
