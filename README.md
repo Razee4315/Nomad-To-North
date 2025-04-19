@@ -1,73 +1,78 @@
-# Welcome to your Lovable project
+# Nomad-To-North
 
-## Project info
+A modern, responsive hotel booking platform for travelers exploring the northern regions. Discover, compare, and book hotels with ease. Built for performance, scalability, and delightful user experience.
 
-**URL**: https://lovable.dev/projects/732a2bc1-bbd8-4301-ac41-7fc435aabcf2
+---
 
-## How can I edit this code?
+## Features
+- Browse a curated list of hotels with details and images
+- View hotel details and amenities
+- Responsive design for all devices
+- Fast and optimized with Vite and React
+- Beautiful UI with shadcn-ui and Tailwind CSS
+- Contact form for inquiries
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## Tech Stack
+- **Frontend:** React, TypeScript
+- **UI:** shadcn-ui, Tailwind CSS
+- **Build Tool:** Vite
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/732a2bc1-bbd8-4301-ac41-7fc435aabcf2) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
+- Node.js (v16+ recommended)
+- npm or yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+### Installation
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/Razee4315/Nomad-To-North.git
+cd Nomad-To-North
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
+# or
+yarn install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
+# or
+yarn dev
 ```
+The app will be running locally at `http://localhost:5173` (or as indicated in your terminal).
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Deployment
+You can deploy this project to platforms like **Vercel**, **Netlify**, or **GitHub Pages**. For Netlify or Vercel, just connect your repo and follow their deployment instructions. For GitHub Pages, use a static build output.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or suggestions.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## License
+This project is licensed under the MIT License.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## Contact
+**Author:** Saqlain Abbas  
+**Email:** saqlainrazee@gmail.com  
+**GitHub:** [Razee4315](https://github.com/Razee4315)
 
-Simply open [Lovable](https://lovable.dev/projects/732a2bc1-bbd8-4301-ac41-7fc435aabcf2) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Acknowledgements
+- [React](https://react.dev)
+- [Vite](https://vitejs.dev)
+- [Tailwind CSS](https://tailwindcss.com)
+- [shadcn-ui](https://ui.shadcn.com)
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
