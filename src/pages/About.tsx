@@ -11,7 +11,7 @@ const About = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <div className="relative bg-gbsky-600 text-white py-20">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926')] bg-cover bg-center opacity-20"></div>
+          <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-20"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">About GB Hotels</h1>
             <p className="text-xl text-center max-w-2xl mx-auto">Your gateway to authentic accommodations in the heart of Gilgit-Baltistan</p>
